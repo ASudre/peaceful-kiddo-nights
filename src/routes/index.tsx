@@ -27,6 +27,7 @@ function Index() {
       <Situations />
       <Expectations />
       <Philosophy />
+      <Tarifs />
       <Contact />
       <Footer />
     </div>
