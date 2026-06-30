@@ -1,5 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Heart, Moon, Sun, MessageCircle, Star, Clock, Baby, Sparkles, Phone, Mail, MapPin } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { Heart, Moon, Sun, MessageCircle, Star, Clock, Baby, Sparkles, Phone, MessageSquare } from "lucide-react";
 
 import heroSleepImg from "../assets/hero-sleep.jpg";
 import moonImg from "../assets/moon-decoration.jpg";
@@ -43,6 +43,7 @@ function Navigation() {
         <div className="hidden items-center gap-8 text-sm font-medium text-foreground md:flex">
           <a href="#approche" className="transition-colors hover:text-primary">Approche</a>
           <a href="#situations" className="transition-colors hover:text-primary">Situations</a>
+          <Link to="/tarifs" className="transition-colors hover:text-primary">Tarifs</Link>
           <a href="#contact" className="transition-colors hover:text-primary">Contact</a>
         </div>
         <a href="#contact" className="btn-sage text-sm">
@@ -258,6 +259,8 @@ function Philosophy() {
 }
 
 function Contact() {
+  const whatsappNumber = "33600000000";
+  const whatsappMsg = encodeURIComponent("Bonjour, je souhaite un premier échange concernant le sommeil de mon enfant.");
   return (
     <section id="contact" className="mx-auto max-w-4xl px-6 py-16 text-center md:py-24">
       <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Contact</span>
@@ -265,38 +268,39 @@ function Contact() {
         Prendre rendez-vous
       </h2>
       <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-        Vous souhaitez retrouver des nuits plus sereines ? Je vous propose un accompagnement adapté à votre situation.
+        L&apos;accompagnement se déroule entièrement à distance, par téléphone ou via WhatsApp. Aucun déplacement nécessaire&nbsp;: vous restez chez vous, dans votre environnement.
       </p>
-      <div className="mt-8 flex flex-col items-center gap-4">
-        <a href="mailto:contact@douce-nuit.fr" className="btn-sage text-base">
-          <Mail className="h-5 w-5" />
-          Contactez-moi pour un premier échange
+      <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+        <a href={`https://wa.me/${whatsappNumber}?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer" className="btn-sage text-base">
+          <MessageSquare className="h-5 w-5" />
+          Écrire sur WhatsApp
         </a>
-        <p className="text-sm text-muted-foreground">Réponse sous 24h</p>
+        <a href="tel:+33600000000" className="btn-sage-outline text-base">
+          <Phone className="h-5 w-5" />
+          Appeler directement
+        </a>
       </div>
-      <div className="mt-12 grid gap-6 rounded-2xl border border-border bg-card p-8 text-left sm:grid-cols-3">
+      <p className="mt-3 text-sm text-muted-foreground">Réponse sous 24h</p>
+      <div className="mt-12 grid gap-6 rounded-2xl border border-border bg-card p-8 text-left sm:grid-cols-2">
         <div className="flex items-start gap-3">
           <Phone className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
           <div>
             <p className="font-medium text-foreground">Téléphone</p>
-            <p className="text-sm text-muted-foreground">Sur rendez-vous</p>
+            <p className="text-sm text-muted-foreground">+33 6 00 00 00 00<br />Sur rendez-vous</p>
           </div>
         </div>
         <div className="flex items-start gap-3">
-          <Mail className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+          <MessageSquare className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
           <div>
-            <p className="font-medium text-foreground">Email</p>
-            <p className="text-sm text-muted-foreground">contact@douce-nuit.fr</p>
-          </div>
-        </div>
-        <div className="flex items-start gap-3">
-          <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-          <div>
-            <p className="font-medium text-foreground">Zone</p>
-            <p className="text-sm text-muted-foreground">Sur consultation</p>
+            <p className="font-medium text-foreground">WhatsApp Business</p>
+            <p className="text-sm text-muted-foreground">Échanges écrits, vocaux ou visio</p>
           </div>
         </div>
       </div>
+      <p className="mt-6 text-sm text-muted-foreground">
+        Envie de connaître le déroulé et les formules&nbsp;?{" "}
+        <Link to="/tarifs" className="font-medium text-primary underline-offset-4 hover:underline">Voir les tarifs</Link>
+      </p>
     </section>
   );
 }
