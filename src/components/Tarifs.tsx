@@ -1,64 +1,11 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { Check, Phone, MessageSquare, MessageCircle, ClipboardList, Sparkles, LifeBuoy, ArrowLeft } from "lucide-react";
+import { MessageCircle, ClipboardList, Sparkles, LifeBuoy, Check } from "lucide-react";
 
-export const Route = createFileRoute("/tarifs")({
-  head: () => ({
-    meta: [
-      { title: "Tarifs et formules — Accompagnement sommeil de l'enfant" },
-      { name: "description", content: "Découvrez les formules d'accompagnement au sommeil de l'enfant : séance unique à 80€, suivi personnalisé, par téléphone ou WhatsApp." },
-      { property: "og:title", content: "Tarifs et formules — Accompagnement sommeil" },
-      { property: "og:description", content: "Séances d'accompagnement au sommeil de l'enfant à partir de 80€, à distance par téléphone ou WhatsApp." },
-    ],
-  }),
-  component: TarifsPage,
-});
-
-function TarifsPage() {
+export default function Tarifs() {
   return (
-    <div className="min-h-screen bg-background">
-      <Nav />
-      <Header />
+    <section id="tarifs">
       <Process />
       <Pricing />
       <FAQ />
-      <CTA />
-      <Foot />
-    </div>
-  );
-}
-
-function Nav() {
-  return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link to="/" className="font-heading text-lg font-semibold tracking-tight text-foreground">
-          Douce Nuit
-        </Link>
-        <div className="hidden items-center gap-8 text-sm font-medium text-foreground md:flex">
-          <Link to="/" className="transition-colors hover:text-primary">Accueil</Link>
-          <Link to="/tarifs" className="text-primary">Tarifs</Link>
-        </div>
-        <Link to="/" hash="contact" className="btn-sage text-sm">
-          Prendre rendez-vous
-        </Link>
-      </div>
-    </nav>
-  );
-}
-
-function Header() {
-  return (
-    <section className="mx-auto max-w-4xl px-6 py-16 text-center md:py-24">
-      <Link to="/" className="mb-6 inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary">
-        <ArrowLeft className="h-4 w-4" /> Retour à l&apos;accueil
-      </Link>
-      <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Tarifs &amp; formules</span>
-      <h1 className="font-heading text-4xl font-bold leading-tight text-foreground md:text-5xl">
-        Un accompagnement <span className="text-primary">clair</span> et transparent
-      </h1>
-      <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground">
-        Toutes les séances se déroulent à distance, par téléphone ou via WhatsApp Business. Vous choisissez le format qui correspond à votre situation et à votre rythme.
-      </p>
     </section>
   );
 }
@@ -71,7 +18,7 @@ function Process() {
     { icon: LifeBuoy, title: "4. Suivi écrit", desc: "Un compte-rendu personnalisé et un suivi par messages WhatsApp pendant 7 jours pour ajuster si besoin." },
   ];
   return (
-    <section className="bg-secondary/40 py-16 md:py-24">
+    <div className="bg-secondary/40 py-16 md:py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-12 text-center">
           <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Déroulé</span>
@@ -91,7 +38,7 @@ function Process() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
@@ -137,7 +84,7 @@ function Pricing() {
   ];
 
   return (
-    <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
+    <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
       <div className="mb-12 text-center">
         <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Formules</span>
         <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
@@ -151,11 +98,7 @@ function Pricing() {
         {formulas.map((f, i) => (
           <div
             key={i}
-            className={`flex flex-col rounded-2xl border p-8 ${
-              f.highlighted
-                ? "border-primary bg-card shadow-lg ring-2 ring-primary/20"
-                : "border-border bg-card"
-            }`}
+            className={`flex flex-col rounded-2xl border p-8 ${f.highlighted ? "border-primary bg-card shadow-lg ring-2 ring-primary/20" : "border-border bg-card"}`}
           >
             {f.highlighted && (
               <span className="mb-4 inline-block w-fit rounded-full bg-primary px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary-foreground">
@@ -176,17 +119,13 @@ function Pricing() {
                 </li>
               ))}
             </ul>
-            <Link
-              to="/"
-              hash="contact"
-              className={`mt-8 ${f.highlighted ? "btn-sage" : "btn-sage-outline"}`}
-            >
+            <a href="#contact" className={`mt-8 ${f.highlighted ? "btn-sage" : "btn-sage-outline"}`}>
               {f.cta}
-            </Link>
+            </a>
           </div>
         ))}
       </div>
-    </section>
+    </div>
   );
 }
 
@@ -210,7 +149,7 @@ function FAQ() {
     },
   ];
   return (
-    <section className="bg-secondary/30 py-16 md:py-24">
+    <div className="bg-secondary/30 py-16 md:py-24">
       <div className="mx-auto max-w-3xl px-6">
         <div className="mb-12 text-center">
           <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Questions fréquentes</span>
@@ -229,48 +168,6 @@ function FAQ() {
           ))}
         </div>
       </div>
-    </section>
-  );
-}
-
-function CTA() {
-  const whatsappNumber = "33600000000";
-  const whatsappMsg = encodeURIComponent("Bonjour, je souhaite un premier échange concernant le sommeil de mon enfant.");
-  return (
-    <section className="mx-auto max-w-4xl px-6 py-16 text-center md:py-24">
-      <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
-        Prêt(e) à retrouver des nuits sereines ?
-      </h2>
-      <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-        Commencez par un échange gratuit de 15 minutes. Sans engagement, simplement pour faire connaissance.
-      </p>
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-        <a href={`https://wa.me/${whatsappNumber}?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer" className="btn-sage text-base">
-          <MessageSquare className="h-5 w-5" />
-          Écrire sur WhatsApp
-        </a>
-        <a href="tel:+33600000000" className="btn-sage-outline text-base">
-          <Phone className="h-5 w-5" />
-          Appeler directement
-        </a>
-      </div>
-    </section>
-  );
-}
-
-function Foot() {
-  return (
-    <footer className="border-t border-border bg-background py-8">
-      <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
-        <span className="font-heading text-sm font-semibold text-foreground">Douce Nuit</span>
-        <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} Douce Nuit — Accompagnement au sommeil de l&apos;enfant.
-        </p>
-        <div className="flex gap-4 text-xs text-muted-foreground">
-          <Link to="/tarifs" className="hover:text-foreground">Tarifs</Link>
-          <a href="#" className="hover:text-foreground">Mentions légales</a>
-        </div>
-      </div>
-    </footer>
+    </div>
   );
 }
