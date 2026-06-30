@@ -202,7 +202,7 @@ function Philosophy() {
 }
 
 function Contact() {
-  const whatsappNumber = "33600000000";
+  const whatsappNumber = "33607440175";
   const whatsappMsg = encodeURIComponent("Bonjour, je souhaite un premier échange concernant le sommeil de mon enfant.");
   return (
     <section id="contact" className="mx-auto max-w-4xl px-6 py-16 text-center md:py-24">
@@ -216,7 +216,7 @@ function Contact() {
           <MessageSquare className="h-5 w-5" />
           Écrire sur WhatsApp
         </a>
-        <a href="tel:+33600000000" className="btn-sage-outline text-base">
+        <a href="tel:+33607440175" className="btn-sage-outline text-base">
           <Phone className="h-5 w-5" />
           Appeler directement
         </a>
