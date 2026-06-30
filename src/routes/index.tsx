@@ -288,7 +288,7 @@ function Contact() {
           <Phone className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
           <div>
             <p className="font-medium text-foreground">Téléphone</p>
-            <p className="text-sm text-muted-foreground">+33 6 00 00 00 00<br />Sur rendez-vous</p>
+            <p className="text-sm text-muted-foreground">+33 6 07 44 01 75<br />Sur rendez-vous</p>
           </div>
         </div>
         <div className="flex items-start gap-3">

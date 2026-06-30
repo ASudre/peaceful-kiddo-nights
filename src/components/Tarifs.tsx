@@ -45,15 +45,6 @@ function Process() {
 function Pricing() {
   const formulas = [
     {
-      name: "Premier échange",
-      price: "Offert",
-      duration: "15 minutes",
-      desc: "Pour faire connaissance et déterminer si mon accompagnement répond à votre situation.",
-      features: ["Appel téléphonique ou WhatsApp", "Aucun engagement", "Réponse à vos premières questions"],
-      cta: "Réserver l'échange",
-      highlighted: false,
-    },
-    {
       name: "Séance d'accompagnement",
       price: "80 €",
       duration: "Environ 1 heure",
@@ -65,21 +56,6 @@ function Pricing() {
         "Suivi par messages pendant 7 jours",
       ],
       cta: "Choisir cette formule",
-      highlighted: true,
-    },
-    {
-      name: "Suivi prolongé",
-      price: "Sur devis",
-      duration: "À définir ensemble",
-      desc: "Pour les situations complexes ou si vous souhaitez un accompagnement sur plusieurs semaines.",
-      features: [
-        "Séance initiale incluse",
-        "Points de suivi réguliers",
-        "Ajustements du plan d'action",
-        "Disponibilité étendue",
-      ],
-      cta: "Demander un devis",
-      highlighted: false,
     },
   ];
 
@@ -94,17 +70,12 @@ function Pricing() {
           Des tarifs simples et transparents, sans frais cachés. Paiement en ligne ou par virement après la séance.
         </p>
       </div>
-      <div className="grid gap-8 lg:grid-cols-3">
+      <div className="grid gap-8">
         {formulas.map((f, i) => (
           <div
             key={i}
-            className={`flex flex-col rounded-2xl border p-8 ${f.highlighted ? "border-primary bg-card shadow-lg ring-2 ring-primary/20" : "border-border bg-card"}`}
+            className="flex flex-col rounded-2xl border p-8 border-primary bg-card shadow-lg ring-2 ring-primary/20"
           >
-            {f.highlighted && (
-              <span className="mb-4 inline-block w-fit rounded-full bg-primary px-3 py-1 text-xs font-medium uppercase tracking-wider text-primary-foreground">
-                Le plus choisi
-              </span>
-            )}
             <h3 className="font-heading text-xl font-semibold text-foreground">{f.name}</h3>
             <div className="mt-4 flex items-baseline gap-2">
               <span className="font-heading text-4xl font-bold text-foreground">{f.price}</span>
@@ -119,7 +90,7 @@ function Pricing() {
                 </li>
               ))}
             </ul>
-            <a href="#contact" className={`mt-8 ${f.highlighted ? "btn-sage" : "btn-sage-outline"}`}>
+            <a href="#contact" className="mt-8 btn-sage">
               {f.cta}
             </a>
           </div>
