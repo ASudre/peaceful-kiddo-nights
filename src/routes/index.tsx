@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { Heart, Moon, Sun, MessageCircle, Star, Clock, Baby, Sparkles, Phone, MessageSquare, Check } from "lucide-react";
+import { Heart, Moon, Sun, MessageCircle, Star, Clock, Baby, Sparkles, Phone, MessageSquare, Check, ClipboardList, LifeBuoy } from "lucide-react";
 
 import heroSleepImg from "../assets/hero-sleep.jpg";
 import moonImg from "../assets/moon-decoration.jpg";
