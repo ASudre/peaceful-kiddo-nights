@@ -43,6 +43,7 @@ function Navigation() {
         <div className="hidden items-center gap-8 text-sm font-medium text-foreground md:flex">
           <a href="#approche" className="transition-colors hover:text-primary">Approche</a>
           <a href="#situations" className="transition-colors hover:text-primary">Situations</a>
+          <Link to="/tarifs" className="transition-colors hover:text-primary">Tarifs</Link>
           <a href="#contact" className="transition-colors hover:text-primary">Contact</a>
         </div>
         <a href="#contact" className="btn-sage text-sm">
