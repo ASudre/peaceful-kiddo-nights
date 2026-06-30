@@ -1,24 +1,11 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { Heart, Moon, Sun, MessageCircle, Star, Clock, Baby, Sparkles, Phone, MessageSquare } from "lucide-react";
-import Tarifs from "../components/Tarifs";
+import Tarifs from "./components/Tarifs";
 
-import heroSleepImg from "../assets/hero-sleep.jpg";
-import moonImg from "../assets/moon-decoration.jpg";
-import nurseryImg from "../assets/nursery.jpg";
+import heroSleepImg from "./assets/hero-sleep.jpg";
+import moonImg from "./assets/moon-decoration.jpg";
+import nurseryImg from "./assets/nursery.jpg";
 
-export const Route = createFileRoute("/")({
-  head: () => ({
-    meta: [
-      { title: "Accompagnement au sommeil de l'enfant" },
-      { name: "description", content: "Accompagnement doux et personnalisé pour les troubles du sommeil de votre enfant. Sans jugement, sans laisser pleurer." },
-      { property: "og:title", content: "Accompagnement au sommeil de l'enfant" },
-      { property: "og:description", content: "Accompagnement doux et personnalisé pour les troubles du sommeil de votre enfant." },
-    ],
-  }),
-  component: Index,
-});
-
-function Index() {
+export default function App() {
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -81,13 +68,7 @@ function Hero() {
       </div>
       <div className="order-1 md:order-2">
         <div className="overflow-hidden rounded-2xl shadow-lg">
-          <img
-            src={heroSleepImg}
-            alt="Maman tenant son bébé endormi doucement"
-            width={1024}
-            height={1024}
-            className="h-auto w-full object-cover"
-          />
+          <img src={heroSleepImg} alt="Maman tenant son bébé endormi doucement" width={1024} height={1024} className="h-auto w-full object-cover" />
         </div>
       </div>
     </section>
@@ -112,40 +93,22 @@ function Intro() {
 
 function Approach() {
   const steps = [
-    {
-      icon: MessageCircle,
-      title: "L'écoute de votre situation",
-      description: "Chaque famille est unique. Nous commençons par un échange approfondi pour comprendre votre quotidien.",
-    },
-    {
-      icon: Star,
-      title: "L'analyse des habitudes de sommeil",
-      description: "Nous examinons ensemble les rythmes, l'environnement et les besoins spécifiques de votre enfant.",
-    },
-    {
-      icon: Sun,
-      title: "Des conseils concrets et applicables",
-      description: "Vous repartez avec des outils clairs, adaptés à votre vie et à la personnalité de votre enfant.",
-    },
+    { icon: MessageCircle, title: "L'écoute de votre situation", description: "Chaque famille est unique. Nous commençons par un échange approfondi pour comprendre votre quotidien." },
+    { icon: Star, title: "L'analyse des habitudes de sommeil", description: "Nous examinons ensemble les rythmes, l'environnement et les besoins spécifiques de votre enfant." },
+    { icon: Sun, title: "Des conseils concrets et applicables", description: "Vous repartez avec des outils clairs, adaptés à votre vie et à la personnalité de votre enfant." },
   ];
-
   return (
     <section id="approche" className="mx-auto max-w-6xl px-6 py-16 md:py-24">
       <div className="mb-12 text-center">
         <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Mon approche</span>
-        <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
-          Une approche douce et personnalisée
-        </h2>
+        <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">Une approche douce et personnalisée</h2>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
           Chaque enfant est unique. C&apos;est pourquoi je propose un accompagnement sur mesure, sans imposer de méthode stricte. Mon objectif est de vous guider vers des solutions durables et bienveillantes, sans laisser pleurer votre enfant.
         </p>
       </div>
       <div className="grid gap-8 md:grid-cols-3">
         {steps.map((step, i) => (
-          <div
-            key={i}
-            className="rounded-xl border border-border bg-card p-8 transition-shadow hover:shadow-md"
-          >
+          <div key={i} className="rounded-xl border border-border bg-card p-8 transition-shadow hover:shadow-md">
             <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-primary">
               <step.icon className="h-6 w-6" />
             </div>
@@ -166,25 +129,15 @@ function Situations() {
     { icon: Baby, text: "Un bébé qui ne s'endort qu'au bras ou au sein" },
     { icon: Heart, text: "Une fatigue importante chez les parents" },
   ];
-
   return (
     <section id="situations" className="bg-secondary/30 py-16 md:py-24">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 md:grid-cols-2">
         <div className="overflow-hidden rounded-2xl">
-          <img
-            src={nurseryImg}
-            alt="Chambre de bébé chaleureuse et apaisante"
-            width={1024}
-            height={512}
-            loading="lazy"
-            className="h-auto w-full object-cover"
-          />
+          <img src={nurseryImg} alt="Chambre de bébé chaleureuse et apaisante" width={1024} height={512} loading="lazy" className="h-auto w-full object-cover" />
         </div>
         <div>
           <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Pour quelles situations ?</span>
-          <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
-            Je peux vous accompagner si vous rencontrez…
-          </h2>
+          <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">Je peux vous accompagner si vous rencontrez…</h2>
           <ul className="mt-8 space-y-4">
             {situations.map((s, i) => (
               <li key={i} className="flex items-start gap-3">
@@ -208,14 +161,11 @@ function Expectations() {
     { icon: Moon, title: "Améliorer la qualité des nuits", desc: "Des nuits plus longues et réparatrices pour toute la famille." },
     { icon: Star, title: "Gagner en confiance", desc: "Avancez sereinement dans vos choix de parents, sans culpabilité." },
   ];
-
   return (
     <section className="mx-auto max-w-6xl px-6 py-16 md:py-24">
       <div className="mb-12 text-center">
         <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Résultats</span>
-        <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
-          Ce que vous pouvez attendre
-        </h2>
+        <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">Ce que vous pouvez attendre</h2>
       </div>
       <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
         {benefits.map((b, i) => (
@@ -237,20 +187,11 @@ function Philosophy() {
     <section className="bg-primary/10 py-16 md:py-24">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-12 px-6 md:flex-row">
         <div className="md:w-1/2">
-          <img
-            src={moonImg}
-            alt="Illustration douce d'une lune endormie avec des étoiles"
-            width={512}
-            height={512}
-            loading="lazy"
-            className="mx-auto w-full max-w-sm rounded-2xl"
-          />
+          <img src={moonImg} alt="Illustration douce d'une lune endormie avec des étoiles" width={512} height={512} loading="lazy" className="mx-auto w-full max-w-sm rounded-2xl" />
         </div>
         <div className="md:w-1/2">
           <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Philosophie</span>
-          <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
-            Un soutien sans jugement
-          </h2>
+          <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">Un soutien sans jugement</h2>
           <p className="mt-4 text-muted-foreground">
             Parce que la fatigue peut être intense et que chaque famille fait de son mieux, je vous propose un espace d&apos;échange bienveillant, sans culpabilisation. Ensemble, nous trouvons ce qui fonctionne pour vous.
           </p>
@@ -266,9 +207,7 @@ function Contact() {
   return (
     <section id="contact" className="mx-auto max-w-4xl px-6 py-16 text-center md:py-24">
       <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Contact</span>
-      <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
-        Prendre rendez-vous
-      </h2>
+      <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">Prendre rendez-vous</h2>
       <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
         L&apos;accompagnement se déroule entièrement à distance, par téléphone ou via WhatsApp. Aucun déplacement nécessaire&nbsp;: vous restez chez vous, dans votre environnement.
       </p>
