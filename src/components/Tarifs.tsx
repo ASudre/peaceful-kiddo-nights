@@ -3,57 +3,23 @@ import { MessageCircle, ClipboardList, Sparkles, LifeBuoy, Check } from "lucide-
 export default function Tarifs() {
   return (
     <section id="tarifs">
-      <Process />
       <Pricing />
       <FAQ />
     </section>
   );
 }
 
-function Process() {
-  const steps = [
-    { icon: MessageCircle, title: "1. Premier contact", desc: "Échange gratuit de 15 minutes par téléphone ou WhatsApp pour cerner vos besoins et vérifier que mon accompagnement vous correspond." },
-    { icon: ClipboardList, title: "2. Questionnaire préalable", desc: "Vous remplissez un questionnaire détaillé sur les habitudes, le rythme et l'environnement de sommeil de votre enfant." },
-    { icon: Sparkles, title: "3. Séance d'accompagnement", desc: "Un rendez-vous d'environ 1h pour analyser ensemble la situation et construire un plan d'action sur mesure." },
-    { icon: LifeBuoy, title: "4. Suivi écrit", desc: "Un compte-rendu personnalisé et un suivi par messages WhatsApp pendant 7 jours pour ajuster si besoin." },
-  ];
-  return (
-    <div className="bg-secondary/40 py-16 md:py-24">
-      <div className="mx-auto max-w-6xl px-6">
-        <div className="mb-12 text-center">
-          <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Déroulé</span>
-          <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
-            Comment se passe l&apos;accompagnement ?
-          </h2>
-        </div>
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((s, i) => (
-            <div key={i} className="rounded-xl border border-border bg-card p-6">
-              <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-secondary text-primary">
-                <s.icon className="h-6 w-6" />
-              </div>
-              <h3 className="font-heading text-base font-semibold text-foreground">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.desc}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
 function Pricing() {
   const formulas = [
     {
-      name: "Séance d'accompagnement",
+      name: "Suivi",
       price: "80 €",
       duration: "Environ 1 heure",
-      desc: "La formule la plus demandée. Un rendez-vous complet avec un plan d'action personnalisé.",
+      desc: "Un rendez-vous complet avec un plan d'action personnalisé.",
       features: [
-        "Questionnaire préalable détaillé",
         "Séance d'1h par téléphone ou WhatsApp",
-        "Plan d'action écrit et personnalisé",
-        "Suivi par messages pendant 7 jours",
+        "Plan d'action personnalisé",
+        "Suivi par messages",
       ],
       cta: "Choisir cette formule",
     },
@@ -62,12 +28,12 @@ function Pricing() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
       <div className="mb-12 text-center">
-        <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Formules</span>
+        <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Tarifs</span>
         <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
-          Choisissez ce qui vous convient
+          Séance d'accompagnement
         </h2>
         <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-          Des tarifs simples et transparents, sans frais cachés. Paiement en ligne ou par virement après la séance.
+          Paiement en ligne ou par virement avant la séance.
         </p>
       </div>
       <div className="grid gap-8">
@@ -112,7 +78,7 @@ function FAQ() {
     },
     {
       q: "À quel âge l'accompagnement est-il adapté ?",
-      a: "J'accompagne les familles avec des enfants de la naissance jusqu'à environ 6 ans. Chaque approche est adaptée à l'âge et au stade de développement.",
+      a: "J'accompagne les familles avec des enfants de la naissance jusqu'à environ 2 ans. Chaque approche est adaptée à l'âge et au stade de développement.",
     },
     {
       q: "Combien de séances faut-il prévoir ?",

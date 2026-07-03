@@ -4,6 +4,7 @@ import Tarifs from "./components/Tarifs";
 import heroSleepImg from "./assets/hero-sleep.jpg";
 import moonImg from "./assets/moon-decoration.jpg";
 import nurseryImg from "./assets/nursery.jpg";
+import nathalieImg from "./assets/nathalie-sudre.png";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
       <Situations />
       <Expectations />
       <Philosophy />
+      <QuiJeSuis />
       <Tarifs />
       <Contact />
       <Footer />
@@ -31,6 +33,7 @@ function Navigation() {
         </a>
         <div className="hidden items-center gap-8 text-sm font-medium text-foreground md:flex">
           <a href="#approche" className="transition-colors hover:text-primary">Approche</a>
+          <a href="#qui-je-suis" className="transition-colors hover:text-primary">Qui je suis</a>
           <a href="#situations" className="transition-colors hover:text-primary">Situations</a>
           <a href="#tarifs" className="transition-colors hover:text-primary">Tarifs</a>
           <a href="#contact" className="transition-colors hover:text-primary">Contact</a>
@@ -48,13 +51,13 @@ function Hero() {
     <section className="mx-auto grid max-w-6xl items-center gap-12 px-6 py-16 md:grid-cols-2 md:py-24">
       <div className="order-2 md:order-1">
         <span className="mb-4 inline-block rounded-full bg-secondary px-3 py-1 text-xs font-medium uppercase tracking-wider text-secondary-foreground">
-          Accompagnement au sommeil
+          Accompagnement au sommeil du bébé
         </span>
         <h1 className="font-heading text-4xl font-bold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl">
           Retrouvez des nuits <span className="text-primary">sereines</span> en famille
         </h1>
         <p className="mt-6 text-lg leading-relaxed text-muted-foreground">
-          Les nuits hachées, les endormissements difficiles, les réveils multiples… Je vous accompagne avec douceur pour comprendre les besoins de votre enfant et retrouver le sommeil.
+          Les nuits hachées, les endormissements difficiles, les réveils multiples… Je vous accompagne avec douceur pour comprendre les besoins de votre bébé et retrouver le sommeil.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
           <a href="#contact" className="btn-sage">
@@ -84,7 +87,7 @@ function Intro() {
           Les troubles du sommeil peuvent vite devenir épuisants pour toute la famille
         </h2>
         <p className="mt-4 text-muted-foreground">
-          En tant qu&apos;auto-entrepreneur spécialisé(e) dans l&apos;accompagnement du sommeil de l&apos;enfant, je vous aide à comprendre les besoins de votre bébé ou de votre enfant et à mettre en place des solutions adaptées, respectueuses de son rythme et de votre parentalité.
+          En tant qu&apos;auto-entrepreneur spécialisé(e) dans l&apos;accompagnement du sommeil de l&apos;enfant, je vous aide à comprendre les besoins de votre bébé et à mettre en place des solutions adaptées, respectueuses de son rythme et de votre parentalité.
         </p>
       </div>
     </section>
@@ -94,8 +97,8 @@ function Intro() {
 function Approach() {
   const steps = [
     { icon: MessageCircle, title: "L'écoute de votre situation", description: "Chaque famille est unique. Nous commençons par un échange approfondi pour comprendre votre quotidien." },
-    { icon: Star, title: "L'analyse des habitudes de sommeil", description: "Nous examinons ensemble les rythmes, l'environnement et les besoins spécifiques de votre enfant." },
-    { icon: Sun, title: "Des conseils concrets et applicables", description: "Vous repartez avec des outils clairs, adaptés à votre vie et à la personnalité de votre enfant." },
+    { icon: Star, title: "L'analyse des habitudes de sommeil", description: "Nous examinons ensemble les rythmes, l'environnement et les besoins spécifiques de votre bébé." },
+    { icon: Sun, title: "Des conseils concrets et applicables", description: "Vous repartez avec des outils clairs, adaptés à votre vie et à la personnalité de votre bébé." },
   ];
   return (
     <section id="approche" className="mx-auto max-w-6xl px-6 py-16 md:py-24">
@@ -156,7 +159,7 @@ function Situations() {
 
 function Expectations() {
   const benefits = [
-    { icon: Sparkles, title: "Mieux comprendre le sommeil", desc: "Apprenez le fonctionnement du sommeil de votre enfant et ses besoins spécifiques." },
+    { icon: Sparkles, title: "Mieux comprendre le sommeil", desc: "Apprenez le fonctionnement du sommeil de votre bébé et ses besoins spécifiques." },
     { icon: Heart, title: "Retrouver des routines apaisées", desc: "Des rituels doux et cohérents pour des soirées et des nuits plus calmes." },
     { icon: Moon, title: "Améliorer la qualité des nuits", desc: "Des nuits plus longues et réparatrices pour toute la famille." },
     { icon: Star, title: "Gagner en confiance", desc: "Avancez sereinement dans vos choix de parents, sans culpabilité." },
@@ -201,6 +204,36 @@ function Philosophy() {
   );
 }
 
+function QuiJeSuis() {
+  return (
+    <section id="qui-je-suis" className="mx-auto max-w-4xl px-6 py-16 md:py-24">
+      <div className="mb-12 text-center">
+        <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Qui je suis</span>
+        <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">Une écoute forgée par 40 ans d&apos;expérience</h2>
+      </div>
+      <div className="flex flex-col items-center gap-6 rounded-2xl border border-border bg-card p-8 text-center shadow-sm md:p-12">
+        <div className="h-28 w-28 overflow-hidden rounded-full shadow-md">
+          <img
+            src={nathalieImg}
+            alt="Portrait de Nathalie Sudre"
+            width={512}
+            height={512}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+        </div>
+        <div>
+          <h3 className="font-heading text-xl font-semibold text-foreground">Nathalie Sudre</h3>
+          <p className="mt-1 text-sm font-medium uppercase tracking-wider text-primary">Sage-femme à la retraite &amp; psychanalyste</p>
+        </div>
+        <p className="max-w-xl text-muted-foreground">
+          J&apos;ai exercé comme sage-femme pendant près de 40 ans, aux côtés de centaines de familles dans les premiers mois de la vie de leur enfant. Aujourd&apos;hui, je souhaite continuer à transmettre les connaissances et l&apos;expérience que j&apos;ai accumulées tout au long de ce parcours, avec la même bienveillance et la même écoute.
+        </p>
+      </div>
+    </section>
+  );
+}
+
 function Contact() {
   const whatsappNumber = "33607440175";
   const whatsappMsg = encodeURIComponent("Bonjour, je souhaite un premier échange concernant le sommeil de mon enfant.");
@@ -216,28 +249,13 @@ function Contact() {
           <MessageSquare className="h-5 w-5" />
           Écrire sur WhatsApp
         </a>
-        <a href="tel:+33607440175" className="btn-sage-outline text-base">
-          <Phone className="h-5 w-5" />
-          Appeler directement
-        </a>
+        <span className="text-muted-foreground">ou</span>
+        <div className="btn-sage-outline text-base">
+          <MessageSquare className="h-5 w-5" />
+          Par SMS au +33 6 07 44 01 75
+        </div>
       </div>
       <p className="mt-3 text-sm text-muted-foreground">Réponse sous 24h</p>
-      <div className="mt-12 grid gap-6 rounded-2xl border border-border bg-card p-8 text-left sm:grid-cols-2">
-        <div className="flex items-start gap-3">
-          <Phone className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-          <div>
-            <p className="font-medium text-foreground">Téléphone</p>
-            <p className="text-sm text-muted-foreground">+33 6 07 44 01 75<br />Sur rendez-vous</p>
-          </div>
-        </div>
-        <div className="flex items-start gap-3">
-          <MessageSquare className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-          <div>
-            <p className="font-medium text-foreground">WhatsApp Business</p>
-            <p className="text-sm text-muted-foreground">Échanges écrits, vocaux ou visio</p>
-          </div>
-        </div>
-      </div>
       <p className="mt-6 text-sm text-muted-foreground">
         Envie de connaître le déroulé et les formules&nbsp;?{" "}
         <a href="#tarifs" className="font-medium text-primary underline-offset-4 hover:underline">Voir les tarifs</a>
