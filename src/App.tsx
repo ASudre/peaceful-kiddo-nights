@@ -129,7 +129,7 @@ function Situations() {
     { icon: Clock, text: "Des difficultés d'endormissement" },
     { icon: Moon, text: "Des réveils fréquents la nuit" },
     { icon: Sun, text: "Des siestes courtes ou irrégulières" },
-    { icon: Baby, text: "Un bébé qui ne s'endort qu'au bras ou au sein" },
+    { icon: Baby, text: "Un bébé qui ne s'endort qu'au bras, au sein ou au biberon" },
     { icon: Heart, text: "Une fatigue importante chez les parents" },
   ];
   return (
