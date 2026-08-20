@@ -1,4 +1,5 @@
 import { MessageCircle, ClipboardList, Sparkles, LifeBuoy, Check } from "lucide-react";
+import { calButtonProps } from "@/lib/cal";
 
 export default function Tarifs() {
   return (
@@ -21,7 +22,6 @@ function Pricing() {
         "Plan d'action personnalisé",
         "Suivi par messages",
       ],
-      cta: "Choisir cette formule",
     },
   ];
 
@@ -56,9 +56,9 @@ function Pricing() {
                 </li>
               ))}
             </ul>
-            <a href="#contact" className="mt-8 btn-sage">
-              {f.cta}
-            </a>
+            <button {...calButtonProps} className="mt-8 btn-sage">
+              Prendre rendez-vous
+            </button>
           </div>
         ))}
       </div>

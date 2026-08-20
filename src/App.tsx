@@ -1,5 +1,7 @@
+import { useEffect } from "react";
 import { Heart, Moon, Sun, MessageCircle, Star, Clock, Baby, Sparkles, Phone, MessageSquare } from "lucide-react";
 import Tarifs from "./components/Tarifs";
+import { initCal, calButtonProps } from "./lib/cal";
 
 import heroSleepImg from "./assets/hero-sleep.jpg";
 import moonImg from "./assets/moon-decoration.jpg";
@@ -7,6 +9,10 @@ import nurseryImg from "./assets/nursery.jpg";
 import nathalieImg from "./assets/nathalie-sudre.png";
 
 export default function App() {
+  useEffect(() => {
+    initCal();
+  }, []);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
@@ -38,9 +44,9 @@ function Navigation() {
           <a href="#tarifs" className="transition-colors hover:text-primary">Tarifs</a>
           <a href="#contact" className="transition-colors hover:text-primary">Contact</a>
         </div>
-        <a href="#contact" className="btn-sage text-sm">
+        <button {...calButtonProps} className="btn-sage text-sm">
           Prendre rendez-vous
-        </a>
+        </button>
       </div>
     </nav>
   );
@@ -60,10 +66,10 @@ function Hero() {
           Les nuits hachées, les endormissements difficiles, les réveils multiples… Je vous accompagne avec douceur pour comprendre les besoins de votre bébé et retrouver le sommeil.
         </p>
         <div className="mt-8 flex flex-wrap gap-4">
-          <a href="#contact" className="btn-sage">
+          <button {...calButtonProps} className="btn-sage">
             <Sparkles className="h-4 w-4" />
             Prendre rendez-vous
-          </a>
+          </button>
           <a href="#approche" className="btn-sage-outline">
             Découvrir l'approche
           </a>
@@ -245,7 +251,12 @@ function Contact() {
         L&apos;accompagnement se déroule entièrement à distance, par téléphone ou via WhatsApp. Aucun déplacement nécessaire&nbsp;: vous restez chez vous, dans votre environnement.
       </p>
       <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-        <a href={`https://wa.me/${whatsappNumber}?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer" className="btn-sage text-base">
+        <button {...calButtonProps} className="btn-sage text-base">
+          <Sparkles className="h-5 w-5" />
+          Réserver un créneau
+        </button>
+        <span className="text-muted-foreground">ou</span>
+        <a href={`https://wa.me/${whatsappNumber}?text=${whatsappMsg}`} target="_blank" rel="noopener noreferrer" className="btn-sage-outline text-base">
           <MessageSquare className="h-5 w-5" />
           Écrire sur WhatsApp
         </a>
