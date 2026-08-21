@@ -284,6 +284,15 @@ function Footer() {
           © {new Date().getFullYear()} Douce Nuit — Accompagnement au sommeil de l&apos;enfant. Tous droits réservés.
         </p>
         <div className="flex gap-4 text-xs text-muted-foreground">
+          <a
+            href="https://g.page/r/CbACCC4BLS1gEBM/review"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1 hover:text-foreground"
+          >
+            <Star className="h-3 w-3" />
+            Laisser un avis Google
+          </a>
           <a href="#" className="hover:text-foreground">Mentions légales</a>
           <a href="#" className="hover:text-foreground">Confidentialité</a>
         </div>
