@@ -438,10 +438,10 @@ function Footer() {
             <Star className="h-3 w-3" />
             Laisser un avis Google
           </a>
-          <a href="#" className="hover:text-foreground">
+          <a href="/mentions-legales.html" className="hover:text-foreground">
             Mentions légales
           </a>
-          <a href="#" className="hover:text-foreground">
+          <a href="/confidentialite.html" className="hover:text-foreground">
             Confidentialité
           </a>
         </div>
