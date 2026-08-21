@@ -1,5 +1,6 @@
 import { MessageCircle, ClipboardList, Sparkles, LifeBuoy, Check } from "lucide-react";
 import { calButtonProps } from "@/lib/cal";
+import { faqItems } from "@/lib/siteData";
 
 export default function Tarifs() {
   return (
@@ -28,7 +29,9 @@ function Pricing() {
   return (
     <div className="mx-auto max-w-6xl px-6 py-16 md:py-24">
       <div className="mb-12 text-center">
-        <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Tarifs</span>
+        <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">
+          Tarifs
+        </span>
         <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
           Séance d'accompagnement
         </h2>
@@ -67,35 +70,32 @@ function Pricing() {
 }
 
 function FAQ() {
-  const items = [
-    {
-      q: "Les séances ont-elles lieu en présentiel ?",
-      a: "Non, tout se fait à distance : par téléphone ou via WhatsApp Business (appel, message vocal ou visio). Vous restez confortablement chez vous, à un moment qui vous convient.",
-    },
-    {
-      q: "Comment se déroule le paiement ?",
-      a: "Le paiement s'effectue avant la séance par virement bancaire ou lien de paiement sécurisé. Une facture vous est transmise systématiquement.",
-    },
-    {
-      q: "À quel âge l'accompagnement est-il adapté ?",
-      a: "J'accompagne les familles avec des enfants de la naissance jusqu'à environ 2 ans. Chaque approche est adaptée à l'âge et au stade de développement.",
-    },
-    {
-      q: "Combien de séances faut-il prévoir ?",
-      a: "Une séance suffit pour la majorité des familles. Pour les situations plus complexes, je peux proposer un suivi prolongé après le premier rendez-vous.",
-    },
-  ];
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((it) => ({
+      "@type": "Question",
+      name: it.q,
+      acceptedAnswer: { "@type": "Answer", text: it.a },
+    })),
+  };
   return (
     <div className="bg-secondary/30 py-16 md:py-24">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <div className="mx-auto max-w-3xl px-6">
         <div className="mb-12 text-center">
-          <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">Questions fréquentes</span>
+          <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">
+            Questions fréquentes
+          </span>
           <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
             Vos questions sur les tarifs
           </h2>
         </div>
         <div className="space-y-4">
-          {items.map((it, i) => (
+          {faqItems.map((it, i) => (
             <details key={i} className="group rounded-xl border border-border bg-card p-6">
               <summary className="cursor-pointer font-heading font-semibold text-foreground marker:hidden">
                 {it.q}
