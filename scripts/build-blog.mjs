@@ -43,6 +43,10 @@ function page({ title, description, path, body, schema }) {
 <meta property="og:url" content="${SITE}${path}" />
 <meta property="og:image" content="${SITE}/og-image.jpg" />
 <meta property="og:locale" content="fr_FR" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="${esc(title)}" />
+<meta name="twitter:description" content="${esc(description)}" />
+<meta name="twitter:image" content="${SITE}/og-image.jpg" />
 <style>${CSS}</style>
 <script type="application/ld+json">${JSON.stringify(schema)}</script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5861f1252d234b27b118026874a1c2b7"}'></script>
