@@ -20,10 +20,14 @@ export function parse(raw, file) {
 /** Published posts (drafts excluded), newest first. */
 export async function readPosts() {
   const files = (await readdir(SRC)).filter((f) => f.endsWith(".md"));
+  const today = new Date().toISOString().slice(0, 10);
   const posts = [];
   for (const f of files) {
     const { meta, body } = parse(await readFile(`${SRC}/${f}`, "utf-8"), f);
     if (meta.draft === "true") continue;
+    // Scheduled publishing: posts dated in the future go live on their date
+    // (the daily rebuild in .github/workflows/deploy.yml picks them up).
+    if (meta.date > today) continue;
     posts.push({ slug: f.replace(/\.md$/, ""), meta, body });
   }
   posts.sort((a, b) => b.meta.date.localeCompare(a.meta.date));

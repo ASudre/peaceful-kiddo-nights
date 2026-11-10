@@ -1,7 +1,7 @@
 ---
 title: Régression de sommeil à 4 mois : comprendre et traverser cette période
 description: Votre bébé dormait mieux et se remet à se réveiller vers 4 mois ? Comprendre la régression de sommeil, combien de temps elle dure et comment l'accompagner en douceur.
-date: 2026-11-10
+date: 2026-11-17
 draft: true
 ---
 

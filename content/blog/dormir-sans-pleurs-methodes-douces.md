@@ -1,7 +1,7 @@
 ---
 title: Dormir sans pleurs : les méthodes douces pour accompagner le sommeil de bébé
 description: Peut-on aider bébé à mieux dormir sans le laisser pleurer ? Principes, étapes et repères d'une approche respectueuse du rythme et des besoins de l'enfant.
-date: 2026-11-10
+date: 2026-12-04
 draft: true
 ---
 

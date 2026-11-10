@@ -1,7 +1,7 @@
 ---
 title: À quel âge bébé fait-il ses nuits ?
 description: À quel âge un bébé dort-il toute la nuit ? Repères par âge, ce que signifie « faire ses nuits » et comment accompagner bébé en douceur sans le forcer.
-date: 2026-11-10
+date: 2026-11-13
 draft: true
 ---
 

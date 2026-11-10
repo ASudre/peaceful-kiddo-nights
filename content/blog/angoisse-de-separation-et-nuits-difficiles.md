@@ -1,7 +1,7 @@
 ---
 title: Angoisse de séparation et nuits difficiles : comment rassurer bébé ?
 description: Vers 8 mois, bébé pleure dès que vous quittez la pièce et ses nuits se dérèglent ? Comprendre l'angoisse de séparation et l'accompagner avec douceur.
-date: 2026-11-10
+date: 2026-11-27
 draft: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Bébé ne s'endort qu'au sein ou au biberon : que faire ?
 description: Votre bébé ne s'endort qu'en tétant ? C'est très courant. Comprendre pourquoi et découvrir comment l'aider, en douceur, à s'endormir autrement.
-date: 2026-11-10
+date: 2026-11-24
 draft: true
 ---
 

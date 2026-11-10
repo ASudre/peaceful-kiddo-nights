@@ -1,7 +1,7 @@
 ---
 title: Sevrage de la tétée ou du biberon de nuit : quand et comment ?
 description: À quel âge arrêter les tétées ou biberons de nuit ? Les repères à connaître et une approche douce, étape par étape, pour retrouver des nuits plus longues.
-date: 2026-11-10
+date: 2026-12-01
 draft: true
 ---
 

@@ -3,6 +3,9 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    # Daily rebuild so scheduled blog posts (future `date`) go live
+    - cron: "0 6 * * *"
 
 permissions:
   contents: read
