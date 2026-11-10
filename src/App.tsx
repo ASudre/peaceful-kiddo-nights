@@ -37,6 +37,7 @@ export default function App() {
       <Philosophy />
       <QuiJeSuis />
       <Tarifs />
+      <BlogTeaser />
       <Contact />
       <Footer />
     </div>
@@ -368,6 +369,40 @@ function QuiJeSuis() {
           </p>
         </div>
         <p className="max-w-xl text-muted-foreground">{founder.bio}</p>
+      </div>
+    </section>
+  );
+}
+
+function BlogTeaser() {
+  return (
+    <section id="blog" className="bg-secondary/30 py-16 md:py-24">
+      <div className="mx-auto max-w-4xl px-6 text-center">
+        <span className="mb-2 block text-sm font-medium uppercase tracking-wider text-primary">
+          Blog
+        </span>
+        <h2 className="font-heading text-3xl font-bold text-foreground md:text-4xl">
+          Conseils pour le sommeil de bébé
+        </h2>
+        <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
+          Des réponses simples et bienveillantes aux questions que se posent les parents sur les
+          nuits de leur enfant.
+        </p>
+        <a
+          href="/blog/bebe-se-reveille-la-nuit/"
+          className="mx-auto mt-8 block max-w-xl rounded-2xl bg-card p-6 text-left shadow-sm transition-shadow hover:shadow-md"
+        >
+          <span className="font-heading text-lg font-semibold text-foreground">
+            Bébé se réveille la nuit&nbsp;: que faire&nbsp;?
+          </span>
+          <span className="mt-2 block text-sm text-muted-foreground">
+            Comprendre les causes des réveils nocturnes selon l&apos;âge et découvrir des pistes
+            douces pour apaiser vos nuits.
+          </span>
+        </a>
+        <a href="/blog/" className="mt-6 inline-block text-sm font-medium text-primary underline">
+          Voir tous les articles
+        </a>
       </div>
     </section>
   );
