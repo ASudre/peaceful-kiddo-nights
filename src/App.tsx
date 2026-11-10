@@ -55,7 +55,9 @@ function StructuredData() {
     image: `${businessInfo.url}og-image.jpg`,
     telephone: businessInfo.phone,
     priceRange: businessInfo.priceRange,
-    areaServed: businessInfo.areaServed,
+    areaServed: { "@type": "Country", name: "France" },
+    address: { "@type": "PostalAddress", ...businessInfo.address },
+    knowsAbout: "Sommeil du bébé et du jeune enfant",
     founder: {
       "@type": "Person",
       name: founder.name,
@@ -426,8 +428,13 @@ function Contact() {
         Prendre rendez-vous
       </h2>
       <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
-        L&apos;accompagnement se déroule entièrement à distance, par téléphone ou via WhatsApp.
-        Aucun déplacement nécessaire&nbsp;: vous restez chez vous, dans votre environnement.
+        L&apos;accompagnement se fait avant tout à distance, par téléphone ou via WhatsApp, partout
+        en France&nbsp;: aucun déplacement nécessaire, vous restez chez vous, dans votre
+        environnement.
+      </p>
+      <p className="mx-auto mt-3 max-w-xl text-sm text-muted-foreground">
+        Vous habitez Toulouse ou ses environs&nbsp;? Nathalie peut aussi vous recevoir à son
+        domicile, sur rendez-vous, au même tarif.
       </p>
       <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
         <button {...calButtonProps} className="btn-sage text-base">

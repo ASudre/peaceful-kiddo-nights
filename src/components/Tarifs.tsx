@@ -1,4 +1,4 @@
-import { MessageCircle, ClipboardList, Sparkles, LifeBuoy, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { calButtonProps } from "@/lib/cal";
 import { faqItems } from "@/lib/siteData";
 
@@ -19,7 +19,8 @@ function Pricing() {
       duration: "Environ 1 heure",
       desc: "Un rendez-vous complet avec un plan d'action personnalisé.",
       features: [
-        "Séance d'1h par téléphone ou WhatsApp",
+        "Séance d'1h par téléphone ou WhatsApp, partout en France",
+        "Ou en personne à Toulouse, sur rendez-vous, au même tarif",
         "Plan d'action personnalisé",
         "Suivi par messages",
       ],

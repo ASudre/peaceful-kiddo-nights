@@ -1,11 +1,17 @@
 export const businessInfo = {
   name: "Douce Nuit",
   description:
-    "Accompagnement doux et personnalisé pour les troubles du sommeil du bébé, par téléphone ou WhatsApp.",
+    "Accompagnement doux et personnalisé pour les troubles du sommeil du bébé, par téléphone ou WhatsApp partout en France, ou sur rendez-vous à Toulouse.",
   url: "https://accompagnement-sommeil-bebe.fr/",
   phone: "+33607440175",
   priceRange: "80€",
   areaServed: "FR",
+  address: {
+    streetAddress: "44 rue Pierre de Ronsard",
+    postalCode: "31400",
+    addressLocality: "Toulouse",
+    addressCountry: "FR",
+  },
 };
 
 export const founder = {
@@ -17,7 +23,7 @@ export const founder = {
 export const faqItems = [
   {
     q: "Les séances ont-elles lieu en présentiel ?",
-    a: "Non, tout se fait à distance : par téléphone ou via WhatsApp Business (appel, message vocal ou visio). Vous restez confortablement chez vous, à un moment qui vous convient.",
+    a: "La plupart des séances se font à distance, partout en France : par téléphone ou via WhatsApp Business (appel, message vocal ou visio), confortablement chez vous, à un moment qui vous convient. Si vous habitez Toulouse ou ses environs, Nathalie peut aussi vous recevoir à son domicile, sur rendez-vous, au même tarif.",
   },
   {
     q: "Comment se déroule le paiement ?",
