@@ -14,6 +14,7 @@ import {
 import Tarifs from "./components/Tarifs";
 import { initCal, calButtonProps } from "./lib/cal";
 import { businessInfo, founder } from "./lib/siteData";
+import blogIndex from "./lib/blog-index.json";
 
 import heroSleepImg from "./assets/hero-sleep.jpg";
 import moonImg from "./assets/moon-decoration.jpg";
@@ -375,6 +376,7 @@ function QuiJeSuis() {
 }
 
 function BlogTeaser() {
+  if (blogIndex.length === 0) return null;
   return (
     <section id="blog" className="bg-secondary/30 py-16 md:py-24">
       <div className="mx-auto max-w-4xl px-6 text-center">
@@ -388,18 +390,20 @@ function BlogTeaser() {
           Des réponses simples et bienveillantes aux questions que se posent les parents sur les
           nuits de leur enfant.
         </p>
-        <a
-          href="/blog/bebe-se-reveille-la-nuit/"
-          className="mx-auto mt-8 block max-w-xl rounded-2xl bg-card p-6 text-left shadow-sm transition-shadow hover:shadow-md"
-        >
-          <span className="font-heading text-lg font-semibold text-foreground">
-            Bébé se réveille la nuit&nbsp;: que faire&nbsp;?
-          </span>
-          <span className="mt-2 block text-sm text-muted-foreground">
-            Comprendre les causes des réveils nocturnes selon l&apos;âge et découvrir des pistes
-            douces pour apaiser vos nuits.
-          </span>
-        </a>
+        <div className="mx-auto mt-8 grid max-w-3xl gap-4 text-left">
+          {blogIndex.slice(0, 3).map((post) => (
+            <a
+              key={post.slug}
+              href={`/blog/${post.slug}/`}
+              className="block rounded-2xl bg-card p-6 shadow-sm transition-shadow hover:shadow-md"
+            >
+              <span className="font-heading text-lg font-semibold text-foreground">
+                {post.title}
+              </span>
+              <span className="mt-2 block text-sm text-muted-foreground">{post.description}</span>
+            </a>
+          ))}
+        </div>
         <a href="/blog/" className="mt-6 inline-block text-sm font-medium text-primary underline">
           Voir tous les articles
         </a>

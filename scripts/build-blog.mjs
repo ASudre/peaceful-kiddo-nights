@@ -1,28 +1,13 @@
 // Builds static blog pages from content/blog/*.md into dist/blog/.
 // Runs after prerender. Posts with `draft: true` are skipped.
-import { readdir, readFile, writeFile, mkdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 import { marked } from "marked";
+import { readPosts } from "./blog-lib.mjs";
 
 const SITE = "https://accompagnement-sommeil-bebe.fr";
 const AUTHOR = { name: "Nathalie Sudre", jobTitle: "Sage-femme à la retraite & psychanalyste" };
-const SRC = "content/blog";
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
-
-function parse(raw, file) {
-  const m = raw.match(/^---\n([\s\S]*?)\n---\n?([\s\S]*)$/);
-  if (!m) throw new Error(`${file}: missing frontmatter`);
-  const meta = {};
-  for (const line of m[1].split("\n")) {
-    const i = line.indexOf(":");
-    if (i < 0) continue;
-    meta[line.slice(0, i).trim()] = line.slice(i + 1).trim().replace(/^"(.*)"$/, "$1");
-  }
-  for (const k of ["title", "description", "date"]) {
-    if (!meta[k]) throw new Error(`${file}: frontmatter "${k}" is required`);
-  }
-  return { meta, body: m[2] };
-}
 
 const fmtDate = (d) => new Date(d).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
 
@@ -70,18 +55,26 @@ ${body}
 </html>`;
 }
 
-const files = (await readdir(SRC)).filter((f) => f.endsWith(".md"));
-const posts = [];
-for (const f of files) {
-  const { meta, body } = parse(await readFile(`${SRC}/${f}`, "utf-8"), f);
-  if (meta.draft === "true") continue;
-  posts.push({ slug: f.replace(/\.md$/, ""), meta, html: marked.parse(body) });
-}
-posts.sort((a, b) => b.meta.date.localeCompare(a.meta.date));
+const posts = (await readPosts()).map((p) => ({ ...p, html: marked.parse(p.body) }));
 
 if (posts.length === 0) {
   console.log("Blog: no published posts, skipping");
   process.exit(0);
+}
+
+// Build FAQPage entries from "## ...?" headings: the answer is the first paragraph after.
+function faqFrom(html) {
+  const out = [];
+  const re = /<h2[^>]*>([^<]*\?)<\/h2>\s*<p>([\s\S]*?)<\/p>/g;
+  let m;
+  while ((m = re.exec(html))) {
+    out.push({
+      "@type": "Question",
+      name: m[1].trim(),
+      acceptedAnswer: { "@type": "Answer", text: m[2].replace(/<[^>]+>/g, "").trim() },
+    });
+  }
+  return out;
 }
 
 for (const p of posts) {
@@ -118,6 +111,8 @@ ${p.html}
       ],
     },
   ];
+  const faq = faqFrom(p.html);
+  if (faq.length >= 2) schema.push({ "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq });
   await mkdir(`dist/blog/${p.slug}`, { recursive: true });
   await writeFile(
     `dist/blog/${p.slug}/index.html`,
@@ -153,5 +148,25 @@ const xml = urls
   .join("\n");
 sitemap = sitemap.replace("</urlset>", `${xml}\n</urlset>`);
 await writeFile("dist/sitemap.xml", sitemap);
+
+const llms = `# Douce Nuit
+
+> Accompagnement doux et personnalisé au sommeil des bébés et jeunes enfants (de la naissance à environ 2 ans), par téléphone ou WhatsApp, partout en France. Par Nathalie Sudre, sage-femme pendant près de 40 ans, psychanalyste. Consultation à 80 €, sans jugement et sans laisser pleurer.
+
+## Pages principales
+
+- [Accueil](${SITE}/): présentation, approche, tarifs et prise de rendez-vous
+- [Blog](${SITE}/blog/): conseils sur le sommeil de bébé
+
+## Articles
+
+${posts.map((p) => `- [${p.meta.title}](${SITE}/blog/${p.slug}/): ${p.meta.description}`).join("\n")}
+
+## Mentions
+
+- [Mentions légales](${SITE}/mentions-legales.html)
+- [Politique de confidentialité](${SITE}/confidentialite.html)
+`;
+await writeFile("dist/llms.txt", llms);
 
 console.log(`Blog: built ${posts.length} post(s)`);

@@ -3,8 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "predev": "node scripts/blog-index.mjs",
     "dev": "vite",
-    "build": "vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs && node scripts/build-blog.mjs",
+    "build": "node scripts/blog-index.mjs && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs && node scripts/build-blog.mjs",
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "lint": "eslint .",
