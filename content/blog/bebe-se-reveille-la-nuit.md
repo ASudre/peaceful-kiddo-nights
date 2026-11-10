@@ -2,7 +2,6 @@
 title: Bébé se réveille la nuit : que faire ?
 description: Votre bébé se réveille plusieurs fois par nuit ? Comprendre les causes des réveils nocturnes selon l'âge et découvrir des pistes douces pour apaiser vos nuits.
 date: 2026-11-10
-draft: true
 ---
 
 Les réveils nocturnes sont l'une des premières préoccupations des jeunes parents. La bonne nouvelle : dans la grande majorité des cas, ils sont normaux et font partie du développement de bébé.

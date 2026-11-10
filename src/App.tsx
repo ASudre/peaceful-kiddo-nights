@@ -89,6 +89,9 @@ function Navigation() {
           <a href="#tarifs" className="transition-colors hover:text-primary">
             Tarifs
           </a>
+          <a href="/blog/" className="transition-colors hover:text-primary">
+            Blog
+          </a>
           <a href="#contact" className="transition-colors hover:text-primary">
             Contact
           </a>
@@ -437,6 +440,9 @@ function Footer() {
           >
             <Star className="h-3 w-3" />
             Laisser un avis Google
+          </a>
+          <a href="/blog/" className="hover:text-foreground">
+            Blog
           </a>
           <a href="/mentions-legales.html" className="hover:text-foreground">
             Mentions légales
